@@ -1,0 +1,27 @@
+service: tasks-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+      - http:
+          path: /
+          method: post
+          cors: true
+      - http:
+          path: /{id}
+          method: put
+          cors: true
+      - http:
+          path: /{id}
+          method: delete
+          cors: true
